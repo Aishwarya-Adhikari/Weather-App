@@ -43,7 +43,7 @@ button {
     border-radius: 10px;
     cursor: pointer;
     margin-top: 20px;
-    width: 100%;
+    width: 50%;
     font-size: 15px;
 }
 
@@ -87,4 +87,16 @@ weather-info {
     align-items: center;
     margin-right: 10px;
     color: white
+}
+
+.hourly-item img {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+}
+
+#hourly-heading{
+    color: #fff;
+    margin-top: 10px;
+
 }
