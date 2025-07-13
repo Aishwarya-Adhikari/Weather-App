@@ -6,6 +6,7 @@ body {
     justify-content: center;
     height: 100vh;
     margin: 0;
+    padding: 20px;
 }
 
 #weather-container {
@@ -33,7 +34,10 @@ input {
     border-radius: 10px;
     border: 1px solid white;
     margin-top: 20px;
+    font-size: 16px;
+    
 }
+
 
 button {
     background: #debff4;
@@ -45,6 +49,7 @@ button {
     margin-top: 20px;
     width: 50%;
     font-size: 15px;
+    transition: 0.3s;
 }
 
 button:hover {
@@ -52,19 +57,21 @@ button:hover {
 }
 
 
-temp-div p {
+#temp-div p {
+
     font-size: 60px;
-    margin-top: -30px;
+    margin-top: -10px;
 }
 
-weather-info {
+#weather-info p {
+
     font-size: 20px;
 
 }
 
 #weather-icon {
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
     margin: 0 auto 10px;
     margin-bottom: 0;
     display: none;
@@ -75,11 +82,11 @@ weather-info {
     overflow-x: auto;
     white-space: nowrap;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
 
 }
 
-.hourly-item {
+.hourly-item  {
     flex: 0 0 auto;
     width: 80px;
     display: flex;
@@ -90,13 +97,13 @@ weather-info {
 }
 
 .hourly-item img {
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
     margin-bottom: 5px;
 }
 
 #hourly-heading{
     color: #fff;
     margin-top: 10px;
-
+    font-weight: 500;
 }
