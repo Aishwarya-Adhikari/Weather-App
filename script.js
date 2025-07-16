@@ -1,44 +1,26 @@
 function getWeather() {
-   const apiKey = 'da563643810f92e26f2c82f9854bd217';
-   const city = document.getElementById('city').value;
+  const city = document.getElementById('city').value.trim();
 
-   if (!city) {
-      alert('Please enter a city name');
-      return;
-   }
+  if (!city) {
+    alert('Please enter a city name');
+    return;
+  }
 
-   const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
-   const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`;
-  
-   //Fetch current weather data
-   fetch(currentWeatherUrl)
-      .then(response => {
-         if (!response.ok) throw new Error('City not found');
-         return response.json();
-      })
-      .then(data => {
-         displayWeather(data);
-      })
-      .catch(error => {
-         console.error('Current weather error:', error);
-         alert('City not found. Please enter a valid city name.');
-      });
-      
+  fetch(`/weather?city=${encodeURIComponent(city)}`)
 
-   //Fetch hourly forecast data
-   fetch(forecastUrl)
-      .then(response => {
-         if (!response.ok) throw new Error('Forecast not available');
-         return response.json();
-      })
-      .then(data => {
-         displayHourlyForecast(data.list); 
-      })
-      .catch(error => {
-         console.error('Forecast error:', error);
-      });
+    .then(response => {
+      if (!response.ok) throw new Error('City not found');
+      return response.json();
+    })
+    .then(data => {
+      displayWeather(data.current);
+      displayHourlyForecast(data.forecast.list);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('City not found or error fetching weather');
+    });
 }
-
 
 
 function displayWeather(data) {
